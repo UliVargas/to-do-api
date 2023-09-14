@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 // import { UpdateTaskDto } from './dto/update-task.dto';
 import { Task } from './entities/task.entity';
@@ -21,11 +21,15 @@ export class TasksService {
   }
 
   async findOne(id: string) {
-    return await this.userModel.findOne({
+    const user = await this.userModel.findOne({
       where: {
         id,
       },
     });
+
+    if (!user) throw new NotFoundException();
+
+    return user;
   }
 
   // update(id: string, updateTaskDto: UpdateTaskDto) {

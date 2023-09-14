@@ -1,5 +1,5 @@
-import { CreateTaskDto } from 'src/tasks/dto/create-task.dto';
-import { Task } from '../../src/tasks/interfaces/task.interaface';
+import { CreateTaskDto } from '../../src/modules/tasks/dto/create-task.dto';
+import { Task } from '../../src/modules/tasks/interfaces/task.interaface';
 import { user } from './user.mock';
 
 export const createTaskDto: CreateTaskDto = {

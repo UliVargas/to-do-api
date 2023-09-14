@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TasksService } from '../../../src/tasks/task.service';
-import { Task } from '../../../src/tasks/entities/task.entity';
 import { TestDatabaseModule } from '../../test.module';
 import { getModelToken } from '@nestjs/sequelize';
 import { createTaskDto, task } from '../../mock/task.mock';
 import { mockModel } from '../dependencies';
+import { TasksService } from '../../../src/modules/tasks/task.service';
+import { Task } from '../../../src/modules/tasks/entities/task.entity';
 
 describe('TasksService', () => {
   let service: TasksService;

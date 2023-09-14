@@ -3,7 +3,7 @@ import { TasksService } from './task.service';
 import { TasksController } from './task.controller';
 import { Task } from './entities/task.entity';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { DatabaseModule } from '../database/database.module';
+import { DatabaseModule } from '../../shared/database/database.module';
 
 @Module({
   imports: [DatabaseModule, SequelizeModule.forFeature([Task])],

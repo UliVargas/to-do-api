@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersController } from '../../../src/users/controller/users.controller';
-import { UsersService } from '../../../src/users/service/users.service';
 import { TestDatabaseModule } from '../../test.module';
-import { AuthModule } from '../../../src/auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { createUserDto, user } from '../../mock/user.mock';
 import { mockService } from '../dependencies';
+import { UsersController } from '../../../src/modules/users/controller/users.controller';
+import { UsersService } from '../../../src/modules/users/service/users.service';
+import { AuthModule } from '../../../src/modules/auth/auth.module';
 
 describe('UsersController', () => {
   let controller: UsersController;

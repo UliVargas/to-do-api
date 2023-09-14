@@ -1,5 +1,5 @@
-import { CreateUserDto } from 'src/users/dto/create-user.dto';
-import { User } from '../../src/users/interfaces/user.interface';
+import { CreateUserDto } from '../../src/modules/users/dto/create-user.dto';
+import { User } from '../../src/modules/users/interfaces/user.interface';
 
 export const createUserDto: CreateUserDto = {
   name: 'John',

@@ -11,4 +11,6 @@ export const mockModel = {
   findAll: jest.fn(),
   findOne: jest.fn(),
   destroy: jest.fn(),
+  login: jest.fn(),
+  sign: jest.fn(),
 };

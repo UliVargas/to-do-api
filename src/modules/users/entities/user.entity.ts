@@ -12,7 +12,7 @@ import {
   Unique,
 } from 'sequelize-typescript';
 import { Task } from '../../tasks/entities/task.entity';
-import { capitalizarFirstLetter } from '../../utils/capitalize-first-letter';
+import { capitalizarFirstLetter } from '../../../common/utils/capitalize-first-letter';
 
 @Table({
   tableName: 'Users',

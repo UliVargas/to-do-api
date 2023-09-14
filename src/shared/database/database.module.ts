@@ -1,8 +1,8 @@
 import { Logger, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Task } from 'src/tasks/entities/task.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Task } from '../../modules/tasks/entities/task.entity';
+import { User } from '../../modules/users/entities/user.entity';
 
 const logger = new Logger('Sequelize');
 

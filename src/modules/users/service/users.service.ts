@@ -26,8 +26,6 @@ export class UsersService {
         password: await hash(createUserDto.password, 10),
       });
     } catch (error) {
-      console.log({ error });
-
       this.handleError(error);
     }
   }
@@ -37,23 +35,19 @@ export class UsersService {
   }
 
   async findOne(id: string) {
-    try {
-      return await this.userModel.findOne({
-        where: { id },
-      });
-    } catch (error) {
-      throw new NotFoundException('User not found');
-    }
+    const user = await this.userModel.findOne({
+      where: { id },
+    });
+    if (!user) throw new NotFoundException('User not found');
+    return user;
   }
 
   async findOneByEmail(email: string) {
-    try {
-      return await this.userModel.findOne({
-        where: { email },
-      });
-    } catch (error) {
-      throw new NotFoundException('User not found');
-    }
+    const user = await this.userModel.findOne({
+      where: { email },
+    });
+    if (!user) throw new NotFoundException('User not found');
+    return user;
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
