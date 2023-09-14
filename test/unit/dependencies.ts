@@ -3,6 +3,7 @@ export const mockService = {
   findAll: jest.fn(),
   findOne: jest.fn(),
   remove: jest.fn(),
+  login: jest.fn(),
 };
 
 export const mockModel = {
