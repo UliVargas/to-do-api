@@ -7,8 +7,8 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { TasksService } from '../service/task.service';
-import { CreateTaskDto } from '../dto/create-task.dto';
+import { TasksService } from './task.service';
+import { CreateTaskDto } from './dto/create-task.dto';
 // import { UpdateTaskDto } from './dto/update-task.dto';
 
 @Controller('tasks')

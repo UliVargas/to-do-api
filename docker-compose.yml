@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  tododb:
+  db:
     image: postgres:14.1-alpine
     restart: always
     environment:
@@ -9,7 +9,4 @@ services:
     ports:
       - '5432:5432'
     volumes: 
-      - tododb:/var/lib/postgresql/data
-volumes:
-  tododb:
-    driver: local
+      - ./postgres:/var/lib/postgresql/data
