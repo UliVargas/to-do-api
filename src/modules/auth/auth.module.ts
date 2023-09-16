@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from '../users/entities/user.entity';
+import { EmailService } from '../email/email.service';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { User } from '../users/entities/user.entity';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, EmailService],
   exports: [SequelizeModule, JwtStrategy, PassportModule, JwtModule],
 })
 export class AuthModule {}

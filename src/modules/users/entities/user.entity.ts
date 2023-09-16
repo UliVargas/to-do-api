@@ -35,6 +35,10 @@ export class User extends Model {
   @Column('text')
   email: string;
 
+  @Default(false)
+  @Column('boolean')
+  verifiedEmail: boolean;
+
   @Column('text')
   password: string;
 

@@ -3,9 +3,9 @@ import { TestDatabaseModule } from '../../test.module';
 import { ConfigModule } from '@nestjs/config';
 import { createUserDto, user } from '../../mock/user.mock';
 import { mockService } from '../dependencies';
-import { UsersController } from '../../../src/modules/users/controller/users.controller';
-import { UsersService } from '../../../src/modules/users/service/users.service';
 import { AuthModule } from '../../../src/modules/auth/auth.module';
+import {UsersController} from "../../../src/modules/users/users.controller";
+import {UsersService} from "../../../src/modules/users/users.service";
 
 describe('UsersController', () => {
   let controller: UsersController;
@@ -23,16 +23,6 @@ describe('UsersController', () => {
     }).compile();
 
     controller = module.get<UsersController>(UsersController);
-  });
-
-  describe('Create', () => {
-    it('Should create a new user and return its data', async () => {
-      jest.spyOn(mockService, 'create').mockReturnValue(user);
-      const result = await controller.create(createUserDto);
-      expect(result).toEqual(user);
-      expect(mockService.create).toHaveBeenCalled();
-      expect(mockService.create).toHaveBeenCalledWith(createUserDto);
-    });
   });
 
   describe('findAll', () => {

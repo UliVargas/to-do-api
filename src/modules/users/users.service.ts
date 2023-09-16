@@ -5,11 +5,9 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateUserDto } from '../dto/create-user.dto';
-import { User } from '../entities/user.entity';
-import { UpdateUserDto } from '../dto/update-user.dto';
-import { hash } from 'bcrypt';
 import { InjectModel } from '@nestjs/sequelize';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
@@ -18,17 +16,6 @@ export class UsersService {
     @InjectModel(User)
     private readonly userModel: typeof User,
   ) {}
-
-  async create(createUserDto: CreateUserDto) {
-    try {
-      return await this.userModel.create({
-        ...createUserDto,
-        password: await hash(createUserDto.password, 10),
-      });
-    } catch (error) {
-      this.handleError(error);
-    }
-  }
 
   findAll() {
     return this.userModel.findAll();
@@ -70,8 +57,9 @@ export class UsersService {
   }
 
   private handleError(error) {
-    this.logger.error(error);
-    if (error.code === '23505') throw new ConflictException(error.detail);
+    this.logger.error(error.parent);
+    if (error.parent.code === '23505')
+      throw new ConflictException(error.parent.detail);
     throw new InternalServerErrorException(`Please check the server logs`);
   }
 }
