@@ -19,6 +19,7 @@ const logger = new Logger('Sequelize');
         database: configService.get('DB_NAME'),
         models: [Task, User],
         autoLoadModels: true,
+        ssl: true,
         logging: (msg: string) => logger.debug(msg),
       }),
       inject: [ConfigService],
